@@ -7,6 +7,7 @@ function snake(){
     this.yVelocity = 0;
     this.score=0;
     this.tail = [];
+    this.highScore = 0;
 
     //drawing snake of size boxScale*boxScale
     this.drawSnake = function(){
@@ -67,7 +68,8 @@ function snake(){
     this.eat = function(fruit) {
         if(this.x == fruit.x && this.y == fruit.y){
             this.score++;
-            eatSound.play();
+            this.highScore = this.score > this.highScore ? this.score : this.highScore;
+            // eatSound.play();
             return true;
         }
         return false;
@@ -78,11 +80,14 @@ function snake(){
         {
             if(this.x == this.tail[i].x && this.y == this.tail[i].y)
             {
+                this.highScore = this.score > this.highScore ? this.score : this.highScore;
                 this.score=0;
                 this.tail=[];
-                hitSound.play();
+                // hitSound.play();
+                return true;
                 
             }
         }
+        return false;
     }
 }

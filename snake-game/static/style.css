@@ -16,10 +16,15 @@ html {
   width: 375px;
 }
 
-.container > * {
+.container > h2 {
   display: inline;
   vertical-align: middle;
   margin: 5px;
   opacity: 0.25;
   color: #fbfaf5;
+}
+
+.container > p {
+    font-weight: bolder;
+    padding-left: 100px;
 }
